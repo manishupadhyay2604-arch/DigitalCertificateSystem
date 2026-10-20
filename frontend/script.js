@@ -1,6 +1,8 @@
 const API_URL = "http://localhost:8080/verify";
 
-const USE_MOCK = true;
+// true = test with fake data (no Java backend needed)
+// change to false once the Java backend is running
+const USE_MOCK = false;
 
 const certInput = document.getElementById("certId");
 const verifyBtn = document.getElementById("verifyBtn");
@@ -15,6 +17,7 @@ const modalDetails = document.getElementById("modalDetails");
 let scanner = null;
 let scanning = false;
 
+// ---------- Talk to backend ----------
 async function verifyCertificate(id) {
   id = id.trim();
   if (!id) {
@@ -26,7 +29,7 @@ async function verifyCertificate(id) {
     let data;
     if (USE_MOCK) {
       data = id === "TCET2026001"
-        ? { found: true, id, name: "Rahul Sharma", event: "Java Workshop" }
+        ? { found: true, certificateId: id, studentName: "Rahul Sharma", eventName: "Java Workshop", issueDate: "2026-01-15", status: "Valid" }
         : { found: false };
     } else {
       const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`);
@@ -42,6 +45,8 @@ async function verifyCertificate(id) {
     showPopup("invalid", "Server Error", "Could not reach the server. Is the Java backend running?");
   }
 }
+
+// ---------- Popup ----------
 function showPopup(type, title, message, data) {
   modalBox.className = "modal-box " + type;
   modalIcon.textContent = type === "valid" ? "✅" : type === "invalid" ? "❌" : "⚠️";
@@ -49,9 +54,10 @@ function showPopup(type, title, message, data) {
   modalDetails.innerHTML = "";
 
   if (data) {
-    addDetail("Certificate ID", data.id);
-    addDetail("Student Name", data.name);
-    addDetail("Event", data.event);
+    addDetail("Certificate ID", data.certificateId);
+    addDetail("Student Name", data.studentName);
+    addDetail("Event", data.eventName);
+    addDetail("Issue Date", data.issueDate);
   } else {
     const p = document.createElement("p");
     p.textContent = message;
@@ -82,11 +88,13 @@ document.getElementById("okBtn").addEventListener("click", closePopup);
 modal.addEventListener("click", (e) => { if (e.target === modal) closePopup(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePopup(); });
 
+// ---------- Manual verification ----------
 verifyBtn.addEventListener("click", () => verifyCertificate(certInput.value));
 certInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") verifyCertificate(certInput.value);
 });
 
+// ---------- QR scanning ----------
 scanBtn.addEventListener("click", async () => {
   if (scanning) {
     await stopScanner();
