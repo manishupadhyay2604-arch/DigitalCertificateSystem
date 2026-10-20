@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Verification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="badge">🎓 Digital Certificate System</div>
+    <h1>Verify Any Certificate <span>Instantly</span></h1>
+    <p>Check if a certificate is genuine by typing its Certificate ID or scanning the QR code printed on it.</p>
+  </header>
+
+  <main class="options">
+    <section class="card">
+      <div class="icon">⌨️</div>
+      <h2>Enter Certificate ID</h2>
+      <p class="hint">Type the ID printed on your certificate.</p>
+      <input type="text" id="certId" placeholder="e.g. TCET2026001">
+      <button id="verifyBtn" class="btn">Verify Certificate</button>
+    </section>
+
+    <section class="card">
+      <div class="icon">📷</div>
+      <h2>Scan QR Code</h2>
+      <p class="hint">Point your camera at the certificate's QR code.</p>
+      <div id="reader"></div>
+      <button id="scanBtn" class="btn">Start Scanning</button>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box" id="modalBox">
+      <button class="close" id="closeBtn" aria-label="Close">&times;</button>
+      <div class="modal-icon" id="modalIcon"></div>
+      <h3 id="modalTitle"></h3>
+      <div id="modalDetails"></div>
+      <button class="btn" id="okBtn">OK</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
