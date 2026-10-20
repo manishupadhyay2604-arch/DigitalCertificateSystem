@@ -1,3 +1,4 @@
+
 package DigitalCertificateSystem.Backend;
 
 import com.sun.net.httpserver.HttpServer;
@@ -15,10 +16,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        manager = new CertificateManager("backend/certificates.csv");
+        manager = new CertificateManager("Backend/certificates.csv");
+
+        String portValue = System.getenv("PORT");
+        int port = (portValue != null)
+                ? Integer.parseInt(portValue)
+                : 8080;
 
         HttpServer server = HttpServer.create(
-            new InetSocketAddress("localhost", 8080), 0
+            new InetSocketAddress("0.0.0.0", port), 0
         );
 
         server.createContext("/verify", Main::verifyCertificate);
@@ -26,7 +32,7 @@ public class Main {
         server.start();
 
         System.out.println("Certificate Verification Server Started!");
-        System.out.println("Server URL: http://localhost:8080");
+        System.out.println("Server port: " + port);
         System.out.println("Verification endpoint: /verify?id=TCET2026001");
     }
 
@@ -36,19 +42,14 @@ public class Main {
         exchange.getResponseHeaders().set(
             "Access-Control-Allow-Origin", "*"
         );
-
         exchange.getResponseHeaders().set(
             "Access-Control-Allow-Methods", "GET, OPTIONS"
         );
-
         exchange.getResponseHeaders().set(
             "Access-Control-Allow-Headers", "Content-Type"
         );
 
         if (exchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
-            exchange.getResponseHeaders().set(
-                "Access-Control-Allow-Methods", "GET, OPTIONS"
-            );
             exchange.sendResponseHeaders(204, -1);
             exchange.close();
             return;
@@ -64,27 +65,21 @@ public class Main {
         String certificateId = null;
 
         if (query != null) {
-
             for (String parameter : query.split("&")) {
-
                 String[] pair = parameter.split("=", 2);
 
                 if (pair.length == 2 && pair[0].equals("id")) {
-
                     certificateId = URLDecoder.decode(
                         pair[1], StandardCharsets.UTF_8
                     );
-
                     break;
                 }
             }
         }
 
         if (certificateId == null || certificateId.trim().isEmpty()) {
-
             sendResponse(exchange, 400,
                 "{\"error\":\"Certificate ID is required\"}");
-
             return;
         }
 
@@ -92,10 +87,8 @@ public class Main {
             manager.findCertificate(certificateId);
 
         if (certificate == null) {
-
             sendResponse(exchange, 404,
                 "{\"found\":false,\"message\":\"Certificate Not Found\"}");
-
             return;
         }
 
@@ -112,6 +105,9 @@ public class Main {
     }
 
     private static String escapeJson(String value) {
+        if (value == null) {
+            return "";
+        }
 
         return value.replace("\\", "\\\\")
                     .replace("\"", "\\\"")
