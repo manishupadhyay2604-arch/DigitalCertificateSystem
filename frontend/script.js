@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:8080/verify";
+const API_URL = "https://digitalcertificatesystem.onrender.com/verify";
 
 const certInput = document.getElementById("certId");
 const verifyBtn = document.getElementById("verifyBtn");
