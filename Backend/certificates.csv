@@ -1,6 +1,52 @@
 certificateId,studentName,eventName,issueDate
-TCET2026001,Rahul Sharma,Java Workshop,2026-08-15
+TCET2026001,Manish Upadhyay,Java Workshop,2026-08-15
 TCET2026002,Priya Patel,AI Seminar,2026-08-20
-TCET2026003,Amit Kumar,Coding Competition,2026-08-25
+TCET2026003, Mansi Upadhyay,Coding Competition,2026-08-25
 TCET2026004,Neha Patil,Web Development Workshop,2026-09-01
 TCET2026005,Arjun Verma,Python Workshop,2026-09-10
+TCET2026006,Aarav Mehta,Java Programming Workshop,2026-08-12
+TCET2026007,Ananya Desai,Artificial Intelligence Seminar,2026-08-18
+TCET2026008,Vivaan Shah,Inter-College Coding Competition,2026-08-22
+TCET2026009,Isha Kulkarni,Web Development Bootcamp,2026-08-29
+TCET2026010,Aditya Joshi,Python for Data Science Workshop,2026-09-03
+TCET2026011,Kavya Nair,Cybersecurity Awareness Seminar,2026-09-08
+TCET2026012,Rohan Gupta,Machine Learning Hands-on Session,2026-09-14
+TCET2026013,Meera Iyer,Cloud Computing Workshop,2026-09-19
+TCET2026014,Siddharth Rao,Hackathon Participation,2026-09-24
+TCET2026015,Diya Singh,Database Management Workshop,2026-10-02
+TCET2026016,Kunal Verma,UI/UX Design Seminar,2026-10-05
+TCET2026017,Sana Khan,Open Source Contribution Workshop,2026-10-10
+TCET2026018,Ishaan Patil,Data Analytics Bootcamp,2026-10-12
+TCET2026019,Aditi Mishra,Robotics Innovation Challenge,2026-10-15
+TCET2026020,Reyansh Jain,Git and GitHub Workshop,2026-10-18
+TCET2026021,Pooja Reddy,Technical Paper Presentation,2026-10-20
+TCET2026022,Yash Malhotra,App Development Seminar,2026-08-12
+TCET2026023,Tanya Kapoor,Problem Solving Competition,2026-08-18
+TCET2026024,Devansh Soni,Internet of Things Workshop,2026-08-22
+TCET2026025,Nisha Pawar,Generative AI Seminar,2026-08-29
+TCET2026026,Omkar Shinde,Java Programming Workshop,2026-09-03
+TCET2026027,Riya Chavan,Artificial Intelligence Seminar,2026-09-08
+TCET2026028,Sahil Bansal,Inter-College Coding Competition,2026-09-14
+TCET2026029,Mira Thomas,Web Development Bootcamp,2026-09-19
+TCET2026030,Atharv More,Python for Data Science Workshop,2026-09-24
+TCET2026031,Sneha Pillai,Cybersecurity Awareness Seminar,2026-10-02
+TCET2026032,Kabir Anand,Machine Learning Hands-on Session,2026-10-05
+TCET2026033,Tanvi Gokhale,Cloud Computing Workshop,2026-10-10
+TCET2026034,Harsh Vora,Hackathon Participation,2026-10-12
+TCET2026035,Simran Kaur,Database Management Workshop,2026-10-15
+TCET2026036,Nikhil Das,UI/UX Design Seminar,2026-10-18
+TCET2026037,Anushka Roy,Open Source Contribution Workshop,2026-08-12
+TCET2026038,Parth Trivedi,Data Analytics Bootcamp,2026-08-18
+TCET2026039,Jhanvi Menon,Robotics Innovation Challenge,2026-08-22
+TCET2026040,Manav Arora,Git and GitHub Workshop,2026-08-29
+TCET2026041,Shruti Naidu,Technical Paper Presentation,2026-09-03
+TCET2026042,Dhruv Saxena,App Development Seminar,2026-09-08
+TCET2026043,Avni Shetty,Problem Solving Competition,2026-09-14
+TCET2026044,Krish Agarwal,Internet of Things Workshop,2026-09-19
+TCET2026045,Sakshi Yadav,Generative AI Seminar,2026-09-24
+TCET2026046,Neil Fernandes,Java Programming Workshop,2026-10-02
+TCET2026047,Bhavna Jadhav,Artificial Intelligence Seminar,2026-10-05
+TCET2026048,Varun Choudhary,Inter-College Coding Competition,2026-10-10
+TCET2026049,Esha Banerjee,Web Development Bootcamp,2026-10-12
+TCET2026050,Pranav Kulkarni,Python for Data Science Workshop,2026-10-15
+TCET2026051,Rudra Upadhyay,Python for Data Science Workshop,2026-10-15
